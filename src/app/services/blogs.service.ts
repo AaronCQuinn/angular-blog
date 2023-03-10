@@ -8,7 +8,7 @@ import { Comment } from 'src/app/Comment'
   providedIn: 'root'
 })
 export class BlogsService {
-  private apiUrl = 'https://angular-blog-server.herokuapp.com/api'
+  private apiUrl = 'https://angular-blog-server.herokuapp.com/api/blogs'
 
   constructor(private http:HttpClient) {}
 
