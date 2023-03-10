@@ -37,11 +37,11 @@ export class AuthService {
   .set('Content-Type', 'application/json')
 
   submitSignUp(): Observable<User> {  
-    return this.http.post<User>('http://localhost:5000/api/register', this.signUpData, {headers: this.headers, withCredentials: true});
+    return this.http.post<User>('https://angular-blog-server.herokuapp.com/api/register', this.signUpData, {headers: this.headers, withCredentials: true});
   }
 
   submitSignIn(): Observable<User> {  
-    return this.http.post<User>('http://localhost:5000/api/login', this.signInData, {headers: this.headers, withCredentials: true});
+    return this.http.post<User>('https://angular-blog-server.herokuapp.com/api/login', this.signInData, {headers: this.headers, withCredentials: true});
   }
   
   public getUser(): any {
@@ -56,7 +56,7 @@ export class AuthService {
   
   public loadUser(): Observable<any> {   
     // Fetch user information from server based on JWT token 
-    return this.http.get<any>('http://localhost:5000/api/verify', {withCredentials: true})
+    return this.http.get<any>('https://angular-blog-server.herokuapp.com/api/verify', {withCredentials: true})
   }
   
   public logout(): void {
