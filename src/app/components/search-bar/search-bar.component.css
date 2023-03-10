@@ -1,0 +1,14 @@
+.searchBar {
+    padding-top: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing);
+}
+
+.searchBar__input {
+    padding: var(--spacing);
+    width: 400px;
+    border-radius: 5px;
+}

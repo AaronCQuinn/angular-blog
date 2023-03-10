@@ -1,0 +1,225 @@
+.blogpostform__container {
+    margin-top: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing);
+}
+
+.blogpostform__titleInput {
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.blogpostform__titleInput:disabled {
+    background-color: white;
+}
+
+.blogpostform__textInput {
+    resize: none;
+    width: 600px;
+    height: 100px;
+    padding: 5px;
+}
+
+.blogpostform__button {
+    font-size: 1.15em;
+    padding: calc(var(--spacing) / 2);
+    background-color: white;
+    font-family: 'Inconsolata', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    width: 600px;
+}
+
+.blogpostform__button:hover {
+    background-color: var(--background--color--hover);
+    cursor: pointer;
+}
+
+.form__toggle__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form__toggle__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: var(--spacing);
+    border: 1px solid black;
+}
+
+.form__toggle__button:hover {
+    cursor: pointer;
+    background-color: var(--background--color--hover);
+}
+
+
+@media (max-width: 767px) {
+    .blogpostform__textInput {
+        width: 90%;
+    }
+
+    .blogpostform__button {
+        width: 90%;
+    }
+    
+}
+  
+.modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+  
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 40%;
+    height: 40%;
+}
+
+.modal-content p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 67px;
+    text-align: center;
+}
+
+.modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.modal__exit_icon {
+    cursor: pointer;
+}
+
+.modal__grid {
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+    grid-column-gap: var(--spacing);
+    height: 100%;
+}
+
+.modal__column__container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.modal__column__one {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+    height: 80%;
+    width: 48%;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--spacing);
+}
+
+.modal__column__two {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+    height: 80%;
+    width: 48%;
+    align-items: center;
+    justify-content: center;
+    margin-right: var(--spacing);
+}
+
+.modal__column__two label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    gap: 5px;
+}
+  
+.modal__column__two label input {
+    width: 100%;
+    max-width: 300px; /* adjust as needed */
+    padding: 3px;
+}
+
+.modal__submit__button {
+    font-size: 1.15em;
+    padding: calc(var(--spacing) / 2);
+    background-color: white;
+    font-family: 'Inconsolata', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.modal__submit__button:hover {
+    background-color: var(--background--color--hover);
+}
+
+.modal__divider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    margin: 0 var(--spacing);
+  }
+  
+  /* Add the visual divider */
+  .modal__divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: gray;
+}
+
+.modal__column__two__button__container {
+    display: flex;
+    gap: var(--spacing);
+}
+
+@media only screen and (max-width: 1024px) {
+    .modal__column__container {
+      flex-direction: column;
+      height: 50%;
+    }
+
+    .modal__divider {
+        height:1px;
+        border-top:1px solid gray;
+        margin-bottom: calc(var(--spacing) * 2);
+    }
+
+    .modal-content {
+        width: 90%;
+        gap: var(--spacing);
+        height: fit-content;
+    }
+  
+    .modal__column__one,
+    .modal__column__two {
+        margin: 0;
+        margin-bottom: calc(var(--spacing) * 2);
+        width: 100%;
+        text-align: center;
+    }
+  }
+  

@@ -1,0 +1,128 @@
+
+
+.blog_view__back__button__container {
+    display: flex;
+    align-items: center;
+    margin-top: var(--spacing);
+    width: 50%;
+}
+
+.blog_view__icon {
+    padding-top: 2px;
+    margin-right: 3px;
+}
+
+.blog_view__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--spacing);
+}
+
+.blog__blog {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: var(--spacing);
+    gap: 3px;
+    width: 50%;
+    align-self: start;
+    margin-bottom: var(--spacing);
+}
+
+.blog__blog p {
+    padding-top: var(--spacing);
+}
+
+.blog__header__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog__header {
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.blog__add_comment {
+    text-decoration: underline;
+    cursor: pointer;
+    user-select: none;
+}
+
+.blog__form__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog__form {
+    margin-top: var(--spacing);
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: var(--spacing);
+}
+
+.blog__form textarea {
+    resize: none;
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+}
+
+.blog__form input {
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+.blog__form__button {
+    font-size: 1.15em;
+    padding: calc(var(--spacing) / 2);
+    background-color: white;
+    font-family: 'Inconsolata', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.blog__form__button:disabled {
+    font-size: 1.15em;
+    padding: calc(var(--spacing) / 2);
+    background-color: white;
+    font-family: 'Inconsolata', sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: lightgray;
+}
+
+.blog__comments__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.blog__comments__container .blog__blog:first-child {
+    margin-top: var(--spacing);
+    margin-bottom: 0;
+}
+
+.blog__commentItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+
+@media (max-width: 767px) {
+    .blog_view__back__button__container,
+    .blog__blog,
+    .blog__header,
+    .blog__form {
+        width: 90%;
+    }
+}

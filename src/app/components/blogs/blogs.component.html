@@ -1,0 +1,38 @@
+<main class="blogs__container" >
+
+    <div class="blogs__column" >
+    <div *ngFor="let blog of leftColumn">
+        <div class="blogs__blog" [routerLink]="['/blog', blog._id]">
+                <h2>{{blog.title}}</h2>
+        
+                <div>
+                    {{"Posted by: " + blog.postedBy}}
+                </div>
+
+                <div>
+                    {{blog.createdAt}}
+                </div>
+        
+                <p>{{blog.content}}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="blogs__column">
+    <div *ngFor="let blog of rightColumn">
+            <div class="blogs__blog" [routerLink]="['/blog', blog._id]">
+                    <h2>{{blog.title}}</h2>
+            
+                    <div>
+                        {{"Posted by: " + blog.postedBy}}
+                    </div>
+
+                    <div>
+                        {{blog.createdAt}}
+                    </div>
+            
+                    <p>{{blog.content}}</p>
+                </div>
+        </div>
+    </div>
+</main>

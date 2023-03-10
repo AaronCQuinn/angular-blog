@@ -1,0 +1,9 @@
+<div class="searchBar">
+    <ul>
+        <label *ngFor="let option of options">
+            <input type="radio" name="option" [value]="option.value" [(ngModel)]="searchObject.selectedOption" (change)="onSelect(option.value)">
+            {{option.label}}
+        </label>
+    </ul>
+    <input type="text" class="searchBar__input" placeholder="Search for blog post..." (input)="onSearchChange($event)" [(ngModel)]="searchObject.searchQuery">
+</div>

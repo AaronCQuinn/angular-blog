@@ -1,0 +1,45 @@
+<div class='blog__header__container'>
+    <div class="blog_view__back__button__container">
+        <button type="button" class="blog__form__button blog__header__container" routerLink="/">
+            <mat-icon class="blog_view__icon">keyboard_backspace</mat-icon> Home
+        </button>
+    </div>
+</div>
+
+<div class="blog_view__container">
+    <div class="blog__blog">
+        <h2>{{ blog!.title }}</h2>
+        <div>Posted by: {{ blog!.postedBy }}</div>
+        <div>{{ blog!.createdAt }}</div>
+        <p>{{ blog!.content }}</p>
+    </div>
+</div>
+
+<div class="blog__header__container">
+    <div class="blog__header">
+        <span>Comments</span>
+        <span class="blog__add_comment" (click)="toggleForm()">Add a comment</span>
+    </div>
+</div>
+
+<div *ngIf="showForm" class="blog__form__container">
+    <form class="blog__form" (ngSubmit)="submitComment()">
+        <label for="postedBy">
+            Alias:
+            <input type="text" name="postedBy" id="postedBy" class="blogpostform__titleInput" [value]="formData.postedBy" (change)="onFormChange($event)" maxlength="50" required disabled>
+        </label>
+        <textarea name="content" id="content" class="blogpostform__textInput" placeholder="Your blog's text..." (change)="onFormChange($event)" maxlength="1000" [(ngModel)]="formData.content" required></textarea>
+        <button class="blog__form__button" type="submit"
+            [disabled]="!formData.postedBy" [title]="formData.postedBy === '' ? 'Please sign in on the main page to leave a comment.' : ''">
+            Submit Comment
+        </button>
+    </form>
+</div>
+
+<div class="blog__comments__container" *ngFor="let comment of comments">
+    <div class="blog__blog">
+        <div>Posted by: {{ comment!.postedBy }}</div>
+        <div>{{ comment!.createdAt }}</div>
+        <p>{{ comment!.content }}</p>
+    </div>
+</div>

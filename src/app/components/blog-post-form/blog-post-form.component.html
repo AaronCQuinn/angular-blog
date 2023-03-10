@@ -1,0 +1,80 @@
+<form class="blogpostform__container" (ngSubmit)="submitBlog()">
+    <label for="postedBy">
+        Alias:
+        <input type="text" name="postedBy" id="postedBy" class="blogpostform__titleInput" [(ngModel)]="formData.postedBy" (change)="onFormChange($event)" maxlength="25" required disabled>
+    </label>
+    <label for="title">
+        Title:
+        <input type="text" name="title" id="title" class="blogpostform__titleInput" [(ngModel)]="this.formData.title" (change)="onFormChange($event)" maxlength="50" required>
+    </label>
+
+    <textarea name="content" id="content" class="blogpostform__textInput" [(ngModel)]="this.formData.content" placeholder="Your blog's text..." (change)="onFormChange($event)" maxlength="1000" required></textarea>
+
+    <button class="blogpostform__button" type="button" (click)="formData.postedBy.toString() !== 'Anonymous' ? submitBlog() : toggleModal()">Submit</button>
+</form>
+
+<div class="modal" *ngIf="modalOpen">
+    <div class="modal-content">
+        <div class="modal__header">
+            <mat-icon class="modal__exit_icon" (click)="toggleModal()">close</mat-icon>
+        </div>
+
+        <div class="modal__column__container">
+            <div class="modal__column__one">
+                <h2>Warning!</h2>
+                <p>
+                    Blogs submitted without signing in expire after three days.
+                    Consider signing in before posting your blog to retain your post.
+                </p>
+                <button class="modal__submit__button" type="submit" (click)="submitAnonymously()">Submit anonymously</button>
+            </div>
+
+            <div class="modal__divider"></div>
+
+            <div class="modal__column__two" *ngIf="menuSelected === ''">
+                <h2>Sign In!</h2>
+                <p>
+                    Your blogs will remain indefinitely.
+                </p>
+                <div class="modal__column__two__button__container">
+                    <button class="modal__submit__button" type="button" (click)="onMenuButtonClicked('signup')">Sign up</button>
+                    <button class="modal__submit__button" type='button' (click)="onMenuButtonClicked('signin')">Sign in</button>
+                </div>
+            </div>
+
+            <form class="modal__column__two" *ngIf="menuSelected === 'signup'" (ngSubmit)="onSignUp()">
+                <h2>Sign Up!</h2>
+                <label for="username">
+                    Username: <input type="text" name="username" id="username" (change)="onSignUpFormChange($event)">
+                </label>
+                <label for="email">
+                    Email: <input type="email" name="email" id="email" (change)="onSignUpFormChange($event)">
+                </label>
+                <label for="password">
+                    Password: <input type="password" name="password" id="password" (change)="onSignUpFormChange($event)">
+                </label>
+                <label for="password">
+                    Password: <input type="password" name="confPassword" id="confPassword" (change)="onSignUpFormChange($event)">
+                </label>
+                <div class="modal__column__two__button__container">
+                    <button class="modal__submit__button" type="button" (click)="onMenuButtonClicked('')">Back</button>
+                    <button class="modal__submit__button" type='submit'>Sign up</button>
+                </div>
+            </form>
+
+            <form class="modal__column__two" *ngIf="menuSelected === 'signin'" (ngSubmit)="onSignIn()">
+                <h2>Sign In</h2>
+                <label for="username">
+                    Username or Email: <input type="text" name="username" id="username" (change)="onSignInFormChange($event)">
+                </label>
+                <label for="password">
+                    Password: <input type="password" name="password" id="password" (change)="onSignInFormChange($event)">
+                </label>
+                <div class="modal__column__two__button__container">
+                    <button class="modal__submit__button" type="button" (click)="onMenuButtonClicked('')">Back</button>
+                    <button class="modal__submit__button" type='submit'>Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

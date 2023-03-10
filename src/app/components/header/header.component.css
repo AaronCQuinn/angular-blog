@@ -1,0 +1,8 @@
+.header {
+    padding-top: var(--spacing);
+    padding-bottom: var(--spacing);
+    font-size: 2em;
+    font-weight: 700;
+    border: 1px solid black;
+    text-align: center;
+}
