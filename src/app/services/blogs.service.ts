@@ -8,14 +8,13 @@ import { Comment } from 'src/app/Comment'
   providedIn: 'root'
 })
 export class BlogsService {
-  private apiUrl = 'http://localhost:5000/api/blogs'
+  private apiUrl = 'https://angular-blog-server.herokuapp.com/api'
 
   constructor(private http:HttpClient) {}
 
   private newBlogAdded = new Subject<Blog>();
   private searchObjectUpdated = new Subject<any>();
   private newCommentAdded = new Subject<Comment>();
-
 
   newBlogAdded$ = this.newBlogAdded.asObservable();
   searchObjectUpdated$ = this.searchObjectUpdated.asObservable();
